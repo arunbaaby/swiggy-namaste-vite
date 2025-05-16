@@ -22,8 +22,10 @@ const Navbar = () => {
                 <div className="auth-links">
                     <a href="#" className="login" onClick={
                         ()=>{
-                            setBtnNameReact('Logout');//the whole Navbar component will be rerendered
+                            btnNameReact === 'Login'?setBtnNameReact('Logout'):setBtnNameReact('Login');//the whole Navbar component will be rerendered
                             // not just the login button
+                            // the whole component is updated in the virtual DOM 
+                            // but react compares the previous version and refrehes the only changed element
                         }
                     }>{btnNameReact}</a>
                     <a href="#" className="sign-up">Sign Up</a>
