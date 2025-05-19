@@ -7,6 +7,7 @@ const Body = () => {
 
     //whenever a state variable updates react re-renders the component
     //filtered list is the data and setFilteredlist is the function which updates the filteredList
+    const [allRestaurants,setAllRestaurants] = useState(resData.resList);
     const [filteredList, setFilteredList] = useState(resData.resList);
     // useEffect(() => {
     //     fetchSwiggyData();
@@ -26,11 +27,30 @@ const Body = () => {
     //     }
     // }
 
+    //search
+    const [searchText, setSearchText] = useState('');
+
     return (
         <main className="body">
             <div className="top-rated-filter">
+                <div className="search">
+                    <input type="text" className="search-box" placeholder="Search Restaurants" value={searchText} onChange={
+                        (e)=>{
+                            setSearchText(e.target.value);
+                        }
+                    } />
+                    <button className="search-button" onClick={
+                        ()=>{
+                            console.log(searchText);
+                            const searchFilter = allRestaurants.filter((res)=>{
+                               return res.name.toLowerCase().includes(searchText.toLowerCase());
+                            });
+                            setFilteredList(searchFilter);
+                        }
+                    }>Search</button>
+                </div>
                 <button className="filter-btn" onClick={() => {
-                    const topRated = filteredList.filter((res) => res.rating >= 4)
+                    const topRated = allRestaurants.filter((res) => res.rating >= 4)
                     setFilteredList(topRated)
                 }}>Top Rated ⇄</button>
             </div>
