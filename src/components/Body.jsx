@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import '../assets/body.css';
 
 const Body = () => {
+    console.log('Body');
+    
 
     //whenever a state variable updates react re-renders the component
     //filtered list is the data and setFilteredlist is the function which updates the filteredList

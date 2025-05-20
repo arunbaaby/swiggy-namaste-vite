@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     width: 48.2px;
-    border-radius: 16px;
+    border-radius: 14px;
     transition: transform 0.3s ease; /* duration and easing */
 }
 

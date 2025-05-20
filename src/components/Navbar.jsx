@@ -1,11 +1,28 @@
 import '../assets/navbar.css';
 import constants from '../../utils/constants';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
     const [btnNameReact,setBtnNameReact] = useState('Login');
     // let btnName = 'Login';
     // console.log(btnName);
+
+    // if there is no dependency array the use effect will work in every render
+    // if dependency array = empty => use effect onn initial render (just once)
+    // if depenency array has anything => use effect will be called
+    // and when the dependency changes
+    // if dependency [] is [btnNameReact] => use effect will be called:
+    // when btnNameReact gets updated
+    
+    // useEffect(
+    //     ()=>{
+    //         console.log('use effect working');
+            
+    //     }
+    // ,[btnNameReact]);
+    // console.log('header rendered');
+
     return (
         <nav className="navbar">
             <div className="navbar-container">
@@ -14,9 +31,9 @@ const Navbar = () => {
                 </div>
                 {console.log('Navbar re-renderd')}
                 <ul className="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/about'}>About Us</Link></li>
+                    <li><Link to={'/contact'}>Contact Us</Link></li>
                     <li><a href="#">Cart</a></li>
                 </ul>
                 <div className="auth-links">
