@@ -2,14 +2,15 @@ import RestaurantCard from "./RestaurantCard";
 import resData from "../../utils/resData";
 import { useState, useEffect } from "react";
 import '../assets/body.css';
+import { Link } from "react-router-dom";
 
 const Body = () => {
     console.log('Body');
-    
+
 
     //whenever a state variable updates react re-renders the component
     //filtered list is the data and setFilteredlist is the function which updates the filteredList
-    const [allRestaurants,setAllRestaurants] = useState(resData.resList);
+    const [allRestaurants, setAllRestaurants] = useState(resData.resList);
     const [filteredList, setFilteredList] = useState(resData.resList);
     // useEffect(() => {
     //     fetchSwiggyData();
@@ -37,15 +38,15 @@ const Body = () => {
             <div className="top-rated-filter">
                 <div className="search">
                     <input type="text" className="search-box" placeholder="Search Restaurants" value={searchText} onChange={
-                        (e)=>{
+                        (e) => {
                             setSearchText(e.target.value);
                         }
                     } />
                     <button className="search-button" onClick={
-                        ()=>{
+                        () => {
                             console.log(searchText);
-                            const searchFilter = allRestaurants.filter((res)=>{
-                               return res.name.toLowerCase().includes(searchText.toLowerCase());
+                            const searchFilter = allRestaurants.filter((res) => {
+                                return res.name.toLowerCase().includes(searchText.toLowerCase());
                             });
                             setFilteredList(searchFilter);
                         }
@@ -58,7 +59,9 @@ const Body = () => {
             </div>
             <section className="res-container">
                 {filteredList.map((res, index) => {
-                    return <RestaurantCard key={index} resData={res} />
+                    return (<Link key={res.resId} to={`/restaurant/${res.resId}`} style={{textDecoration:'none', color:'inherit'}}>
+                        <RestaurantCard resData={res} />
+                    </Link>)
                 })}
             </section>
         </main>
