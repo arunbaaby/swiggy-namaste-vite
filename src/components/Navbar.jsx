@@ -34,7 +34,7 @@ const Navbar = () => {
                     <li><Link to={'/'}>Home</Link></li>
                     <li><Link to={'/about'}>About Us</Link></li>
                     <li><Link to={'/contact'}>Contact Us</Link></li>
-                    <li><a href="#">Cart</a></li>
+                    <li><Link to={'/cart'}>Cart</Link></li>
                 </ul>
                 <div className="auth-links">
                     <a href="#" className="login" onClick={
