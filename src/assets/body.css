@@ -44,7 +44,7 @@
 
 .res-container{
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
     grid-template-columns: repeat(4,1fr);
     margin-left: 1rem;
     margin-right: 1rem;
@@ -52,8 +52,8 @@
 }
 
 .res-card-container {
-    width: 273px;
-    height: 285px;
+    width: 285px;
+    height: 295px;
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
 }

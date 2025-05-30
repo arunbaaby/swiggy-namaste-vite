@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import '../assets/resDetails.css';
 import { RES_IMG_URL, RES_MENU_API } from "../../utils/constants";
 import useRestaurantDetails from "../../hooks/useRestaurantMenu";
+import Shimmer from "./Shimmer";
 
 const RestaurantDetails = () => {
 
@@ -11,7 +12,7 @@ const RestaurantDetails = () => {
     const restaurantDetails = useRestaurantDetails(resId);
 
     if (!restaurantDetails) {
-        return <h1>Loading Restaurant indo....</h1>
+        return <Shimmer/>
     }
 
     const { name, cuisines, avgRating, cloudinaryImageId } = restaurantDetails;
