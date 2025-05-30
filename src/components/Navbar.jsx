@@ -1,5 +1,5 @@
 import '../assets/navbar.css';
-import constants from '../../utils/constants';
+import {LOGO_URL} from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
@@ -27,7 +27,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-container">
                 <div className="logo">
-                    <img src={constants.LOGO_URL} alt="" />
+                    <img src={LOGO_URL} alt="" />
                 </div>
                 {console.log('Navbar re-renderd')}
                 <ul className="nav-links">

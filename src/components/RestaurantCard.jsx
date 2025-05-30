@@ -1,20 +1,22 @@
-import '../assets/body.css'
+import '../assets/body.css';
+import {RES_IMG_URL} from '../../utils/constants';
+
 const RestaurantCard = (props) => {
-    const { resData } = props;
-    const { image, name, cuisine, rating, deliveryTime } = resData;
+    const {name,avgRating,cloudinaryImageId,cuisines,sla} = props.resData.info;
+    
     return (
         <div className="res-card-container">
             <div className="res-card-image">
-            <img src={image} alt="Restaurant" />
+            <img src={RES_IMG_URL+cloudinaryImageId} alt="Restaurant" />
             </div>
             <div className="card-content">
                 <p className="res-name">{name}</p>
                 <div className="rating-time">
-                    <span>⭐ {rating}</span>
-                    <span>•</span>
-                    <span>{deliveryTime}</span>
+                    <span>⭐ </span>
+                    <span> {avgRating} • </span>
+                    <span>{sla.slaString}</span>
                 </div>
-                <p className="cuisine"> {cuisine} </p>
+                <p className="cuisine">{cuisines.join(', ')}</p>
             </div>
         </div>
     )

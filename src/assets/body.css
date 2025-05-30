@@ -53,7 +53,7 @@
 
 .res-card-container {
     width: 273px;
-    height: 275px;
+    height: 285px;
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
 }

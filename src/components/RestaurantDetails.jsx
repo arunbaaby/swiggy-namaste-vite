@@ -1,42 +1,56 @@
-import resData from "../../utils/resData";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import '../assets/resDetails.css'
+import '../assets/resDetails.css';
+import { RES_IMG_URL } from "../../utils/constants";
 
 const RestaurantDetails = () => {
 
-    const {resId} = useParams();
-    console.log(resId);    
+    const { resId } = useParams();
+    console.log(resId);
 
     const [restaurant, setRestaurant] = useState(null);
 
-    useEffect(()=>{
-        const matchedRestaurant = resData.resList.find((res)=>{
-            return res.resId.toString() === resId;
-        });
-        setRestaurant(matchedRestaurant);
-    },[resId]);
+    useEffect(() => {
+        try {
+            const fetchResMenu = async () => {
+                const menuData = await fetch('https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=9.9312328&lng=76.26730409999999&restaurantId=' + resId);
+                const jsonMenu = await menuData.json();
+                console.log(jsonMenu.data.cards[2].card.card.info);
+                setRestaurant(jsonMenu.data.cards[2].card.card.info);
+            }
+            fetchResMenu();
+        } catch (error) {
+            console.log(error);
+        }
+    }, [resId]);
 
-    // this is must because in the initial render restaurant is null
+    // useEffect(()=>{
+    //     const matchedRestaurant = resData.resList.find((res)=>{
+    //         return res.resId.toString() === resId;
+    //     });
+    //     setRestaurant(matchedRestaurant);
+    // },[resId]);
+
+    // // this is must because in the initial render restaurant is null
     if (!restaurant) {
         return <h1>Loading Restaurant indo....</h1>
     }
 
     //in initial render the restaurant is null
     // destructing null value will give error
-    const { name, cuisine, rating, deliveryTime, image } = restaurant;
+    const { name, cuisines, avgRating, sla, cloudinaryImageId } = restaurant;
 
     return (
         <section className="res-wrap">
             <div className="res-details-card">
                 <div className="res-info">
                     <h1 className="res-title">{name}</h1>
-                    <p className="res-cuisine">{cuisine}</p>
-                    <p className="res-rating">⭐ {rating}</p>
-                    <p className="res-delivery-time">{deliveryTime}</p>
+                    <p className="res-cuisine">{cuisines}</p>
+                    <p className="res-rating">⭐ . {avgRating}</p>
+                    {/* <p className="res-delivery-time">{sla.minDeliveryTime} - {sla.maxDeliveryTime}</p> */}
                 </div>
                 <div className="res-image-wrapper">
-                    <img src={image} alt={name} />
+                    <img src={RES_IMG_URL + cloudinaryImageId} />
                 </div>
             </div>
         </section>
