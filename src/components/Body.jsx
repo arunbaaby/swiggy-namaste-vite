@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../../utils/constants";
 import useFetchSwiggyData from "../../hooks/useFetchSwiggyData";
 import BodyShimmmer from "./BodyShimmer";
+import useOnlineStatus from "../../hooks/useOnlineStatus";
 
 const Body = () => {
     //whenever a state variable updates react re-renders the component
@@ -41,6 +42,12 @@ const Body = () => {
     //         console.error('Error fetching data swiggy data :', error);
     //     }
     // }
+
+    const onlineStatus = useOnlineStatus();
+
+    if(!onlineStatus){
+        return <h1>Looks like you are offline!!</h1>
+    }
 
     if (allRestaurants === null || filteredList.length === 0) { 
         return <BodyShimmmer/>

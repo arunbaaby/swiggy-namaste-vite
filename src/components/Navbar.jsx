@@ -2,6 +2,7 @@ import '../assets/navbar.css';
 import {LOGO_URL} from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import useOnlineStatus from '../../hooks/useOnlineStatus';
 
 const Navbar = () => {
     const [btnNameReact,setBtnNameReact] = useState('Login');
@@ -23,6 +24,7 @@ const Navbar = () => {
     // ,[btnNameReact]);
     // console.log('header rendered');
 
+    const onlineStatus = useOnlineStatus();
     return (
         <nav className="navbar">
             <div className="navbar-container">
@@ -35,6 +37,7 @@ const Navbar = () => {
                     <li><Link to={'/about'}>About Us</Link></li>
                     <li><Link to={'/contact'}>Contact Us</Link></li>
                     <li><Link to={'/cart'}>Cart</Link></li>
+                    <li>Online Status: {onlineStatus?'✅':'❌'}</li>
                 </ul>
                 <div className="auth-links">
                     <a href="#" className="login" onClick={
