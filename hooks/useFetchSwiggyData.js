@@ -12,7 +12,7 @@ const useFetchSwiggyData = () => {
             const data = await fetch(SWIGGY_API);
             const jsonData = await data.json();
             console.log(jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            const restaurants = jsonData?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            const restaurants = jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
             if (restaurants) {
                 setAllRestaurants(restaurants);

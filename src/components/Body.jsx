@@ -4,7 +4,6 @@ import '../assets/body.css';
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../../utils/constants";
 import useFetchSwiggyData from "../../hooks/useFetchSwiggyData";
-import Shimmer from "./Shimmer";
 import BodyShimmmer from "./BodyShimmer";
 
 const Body = () => {
@@ -43,7 +42,7 @@ const Body = () => {
     //     }
     // }
 
-    if (allRestaurants === null || filteredList.length === 0) {
+    if (allRestaurants === null || filteredList.length === 0) { 
         return <BodyShimmmer/>
     }
 
