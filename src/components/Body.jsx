@@ -43,9 +43,9 @@ const Body = () => {
     //     }
     // }
 
-    const onlineStatus = useOnlineStatus();
+    const isOnline = useOnlineStatus();
 
-    if(!onlineStatus){
+    if(!isOnline){
         return <h1>Looks like you are offline!!</h1>
     }
 
