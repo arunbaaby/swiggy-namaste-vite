@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
@@ -9,6 +9,15 @@ import RestaurantDetails from "./components/RestaurantDetails";
 import Cart from "./components/Cart";
 import './index.css';
 import Body from "./components/Body";
+// import Grocery from "./components/Grocery";
+
+// TO OPTIMISE APP
+// chunking
+// bundling 
+// lazy loading
+// on the demand load
+
+const Grocery = lazy(()=>import('../src/components/Grocery'));
 
 const appRouter = createBrowserRouter(
   [
@@ -32,6 +41,10 @@ const appRouter = createBrowserRouter(
         {
           path: '/cart',
           element: <Cart />
+        },
+        {
+          path: '/grocery',
+          element: <Suspense fallback={<h1>Suspence Lazy Loading...</h1>}><Grocery/></Suspense>
         },
         {
           path:'/restaurant/:resId',

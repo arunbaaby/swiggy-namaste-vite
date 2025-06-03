@@ -37,6 +37,7 @@ const Navbar = () => {
                     <li><Link to={'/about'}>About Us</Link></li>
                     <li><Link to={'/contact'}>Contact Us</Link></li>
                     <li><Link to={'/cart'}>Cart</Link></li>
+                    <li><Link to={'/grocery'}>Grocery</Link></li>
                     <li>Online Status: {onlineStatus?'✅':'❌'}</li>
                 </ul>
                 <div className="auth-links">
