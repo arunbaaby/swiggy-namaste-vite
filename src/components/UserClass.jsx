@@ -39,8 +39,8 @@ class UserClass extends React.Component {
     render() {
         const { name, location, login } = this.state.userInfo;
         return (
-            <div className="user-wrapper">
-                <h2>Class Component</h2>
+            <div className="user-wrapper p-8 shadow-2xl rounded-2xl">
+                <h2 className="font-bold text-2xl">Class Component</h2>
                 {/* <button onClick={()=>{
                 this.setState({
                     count: this.state.count + 1

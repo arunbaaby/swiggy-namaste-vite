@@ -1,23 +1,21 @@
-import '../assets/res-shimmer.css';
-
 const ResShimmer = () => {
     return (
-        <section className="res-wrap skelton">
-            <div className="res-details-card">
-                <div className="res-info">
+        <section className="flex justify-center my-16">
+            <div className="flex justify-between w-[480px]">
+                <div className="p-4 flex flex-col gap-2">
                     <div className="res-title">
-                        <div className='skeleton skeleton-text'></div>
+                        <div className='shimmer-bg h-4 w-32 rounded'></div>
                     </div>
                     <div className="res-cuisine">
-                        <div className='skeleton skeleton-text'></div>
+                        <div className='shimmer-bg h-4 w-32 rounded'></div>
                     </div>
                     <div className="res-rating">
-                        <div className='skeleton skeleton-text'></div>
+                        <div className='shimmer-bg h-4 w-32 rounded'></div>
                     </div>
                     {/* <p className="res-delivery-time">{sla.minDeliveryTime} - {sla.maxDeliveryTime}</p> */}
                 </div>
                 <div className="res-image-wrapper">
-                    <div className='res-image skeleton'></div>
+                    <div className='shimmer-bg rounded-xl h-[144px] w-[156px]'></div>
                 </div>
             </div>
         </section>

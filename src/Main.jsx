@@ -7,8 +7,8 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantDetails from "./components/RestaurantDetails";
 import Cart from "./components/Cart";
-import './index.css';
 import Body from "./components/Body";
+import '../src/index.css'
 // import Grocery from "./components/Grocery";
 
 // TO OPTIMISE APP

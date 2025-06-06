@@ -25,8 +25,8 @@ const User = (props) => {
     })
 
     return (
-        <div className="user-wrapper">
-            <h2>Functional Component</h2>
+        <div className="user-wrapper p-8 shadow-2xl rounded-2xl">
+            <h2 className="font-bold text-2xl">Functional Component</h2>
             {/* <button onClick={()=>{
                 setCount(count+1);
             }}>Count++</button>

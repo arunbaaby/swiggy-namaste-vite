@@ -1,6 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-import '../assets/body.css';
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../../utils/constants";
 import useFetchSwiggyData from "../../hooks/useFetchSwiggyData";
@@ -55,14 +54,14 @@ const Body = () => {
 
     return (
         <main className="body">
-            <div className="top-rated-filter">
-                <div className="search">
-                    <input type="text" className="search-box" placeholder="Search Restaurants" value={searchText} onChange={
+            <div className="top-rated-filter my-8 flex gap-16">
+                <div className="search flex justify-between gap-4">
+                    <input type="text" className="search-box p-3 w-[300px] bg-[#F0F0F5] rounded-[8px] text-gray-600 text-xl font-semibold" placeholder="Search Restaurants" value={searchText} onChange={
                         (e) => {
                             setSearchText(e.target.value);
                         }
                     } />
-                    <button className="search-button" onClick={
+                    <button className="search-button text-black border rounded-[4px] px-[12px] hover:text-[#FF5200] hover:border-[#FF5200] hover:scale-110 transition-transform duration-300" onClick={
                         () => {
                             console.log(searchText);
                             const searchFilter = allRestaurants.filter((res) => {
@@ -72,12 +71,15 @@ const Body = () => {
                         }
                     }>Search</button>
                 </div>
-                <button className="filter-btn" onClick={() => {
+                <button className="filter-btn border rounded-[4px] px-[12px] hover:text-[#FF5200] hover:border-[#FF5200] hover:scale-110 transition-transform duration-300" onClick={() => {
                     const topRated = allRestaurants.filter((res) => res.info.avgRating >= 4.6)
                     setFilteredList(topRated)
                 }}>Top Rated ⇄</button>
             </div>
-            <section className="res-container">
+            <div className="">
+                <h1 className="text-2xl font-extrabold">Restaurants with online food delivery in Kochi</h1>
+            </div>
+            <section className="res-container grid grid-cols-4 gap-8 my-8">
                 {filteredList.map((res, index) => {
                     return (<Link key={res.info.id} to={`/restaurant/${res.info.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <RestaurantCard resData={res} />
