@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import {RestaurantCard, withPromotedLabel} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../../utils/constants";
@@ -15,6 +15,8 @@ const Body = () => {
     const [filteredList, setFilteredList] = useState([]);
     //search
     const [searchText, setSearchText] = useState('');
+
+    // const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     useEffect(() => {
         setFilteredList(allRestaurants);
@@ -82,7 +84,8 @@ const Body = () => {
             <section className="res-container grid grid-cols-4 gap-8 my-8">
                 {filteredList.map((res, index) => {
                     return (<Link key={res.info.id} to={`/restaurant/${res.info.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <RestaurantCard resData={res} />
+                        <RestaurantCard resData = {res} />
+                        {/* {res.info.promoted?<RestaurantCardPromoted resData= {res}/>:<RestaurantCard resData={res}/>} */}
                     </Link>)
                 })}
             </section>
