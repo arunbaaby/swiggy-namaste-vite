@@ -12,7 +12,7 @@ const RestaurantDetails = () => {
     const restaurantDetails = useRestaurantDetails(resId);
 
     if (!restaurantDetails) {
-        return <h1>Loading..</h1>
+        return <ResShimmer/>
     }
 
     //console.log('resDet ', restaurantDetails);
