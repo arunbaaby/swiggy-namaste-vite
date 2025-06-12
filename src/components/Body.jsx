@@ -1,4 +1,4 @@
-import {RestaurantCard, withPromotedLabel} from "./RestaurantCard";
+import {RestaurantCard} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../../utils/constants";

@@ -13,8 +13,8 @@ const useRestaurantDetails = (resId) => {
         try {
             const menuData = await fetch(RES_MENU_API + resId);
             const jsonMenu = await menuData.json();
-            console.log(jsonMenu.data.cards[2].card.card.info);
-            setResDetails(jsonMenu.data.cards[2].card.card.info);
+            //console.log(jsonMenu.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards);
+            setResDetails(jsonMenu.data);
         } catch (error) {
             console.log(error);
         }
