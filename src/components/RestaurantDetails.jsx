@@ -17,7 +17,7 @@ const RestaurantDetails = () => {
 
     //console.log('resDet ', restaurantDetails);
 
-    const {name, cuisines, cloudinaryImageId, avgRating } = restaurantDetails.cards[2].card.card.info;
+    const {name} = restaurantDetails.cards[2].card.card.info;
     //console.log(name);
     
 
