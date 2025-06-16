@@ -17,7 +17,7 @@ const ResCategory = ({data})=>{
                 <span className="title text-xl text-gray-900 font-bold">{title} ({itemCards.length})</span>
 
                 {
-                    selected === null ?
+                    selected === categoryId ?
                     <span><img className="w-8" src="/images/down-arrow.png" alt="down-arrow"/></span> :
                     <span><img className="w-8" src="/images/up-arrow.png" alt="up-arrow"/></span>
                 }
