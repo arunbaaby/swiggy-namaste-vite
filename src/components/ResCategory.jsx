@@ -15,7 +15,6 @@ const ResCategory = ({data})=>{
         <div className="my-8">
             <div className="flex justify-between cursor-pointer" onClick={()=>handleSelection(categoryId)}>
                 <span className="title text-xl text-gray-900 font-bold">{title} ({itemCards.length})</span>
-                {/* <span><img className="w-8" src="/images/down-arrow.png" alt="down-arrow"/></span> */}
 
                 {
                     selected === null ?
