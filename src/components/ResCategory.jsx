@@ -5,11 +5,11 @@ import ResCategoryInfo from "./ResCategoryInfo";
 const ResCategory = ({data})=>{
     //console.log('data: ', data);
     const {title, itemCards, categoryId } = data;
-    const [selected, setSelected] = useState(null);
+    const [selected, setSelected] = useState(false);
 
     const handleSelection = (getCurrentCategoryId)=>{
         //console.log('cat id ',catId);
-        setSelected(getCurrentCategoryId === selected ? null : getCurrentCategoryId);
+        setSelected(getCurrentCategoryId === selected ? false : getCurrentCategoryId);
     }
     return (
         <div className="my-8">

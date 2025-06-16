@@ -12,21 +12,21 @@ const RestaurantDetails = () => {
     const restaurantDetails = useRestaurantDetails(resId);
 
     if (!restaurantDetails) {
-        return <ResShimmer/>
+        return <ResShimmer />
     }
 
     //console.log('resDet ', restaurantDetails);
 
-    const {name} = restaurantDetails.cards[2].card.card.info;
+    const { name } = restaurantDetails.cards[2].card.card.info;
     //console.log(name);
-    
 
-    const categories =  restaurantDetails.cards[5].groupedCard.cardGroupMap.REGULAR.cards.filter((c)=>c.card.card['@type']==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+
+    const categories = restaurantDetails.cards[5].groupedCard.cardGroupMap.REGULAR.cards.filter((c) => c.card.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
     // console.log('cate :', categories);
 
     // const recommmended = categories.filter((c)=>c.card.card.title==='Recommended');
     // console.log( 'recommmend ', recommmended);
-    
+
 
     return (
         <section className="max-w-[800px] min-h-[800px] mx-auto">
@@ -35,9 +35,13 @@ const RestaurantDetails = () => {
             </div>
             {/* Accordian */}
             <div className="my-8">
-                {categories.map((category,index)=>
-                    <ResCategory data={category.card.card} key={index}/>
-                    )}
+                {categories.map((category, index) =>
+                    <ResCategory
+                        data={category.card.card}
+                        key={index}
+                        selected={false}
+                    />
+                )}
             </div>
         </section>
         // <section className="res-wrap flex justify-center my-16 transition-transform duration-200 ease-in-out hover:scale-110">
