@@ -11,6 +11,8 @@ const RestaurantDetails = () => {
     //custom hook 
     const restaurantDetails = useRestaurantDetails(resId);
 
+    const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
+
     if (!restaurantDetails) {
         return <ResShimmer />
     }
@@ -39,27 +41,14 @@ const RestaurantDetails = () => {
                     <ResCategory
                         data={category.card.card}
                         key={index}
-                        selected={false}
+                        selected={index === selectedCategoryIndex}
+                        onClick={()=>{
+                            setSelectedCategoryIndex(index===selectedCategoryIndex?null:index)
+                        }}
                     />
                 )}
             </div>
         </section>
-        // <section className="res-wrap flex justify-center my-16 transition-transform duration-200 ease-in-out hover:scale-110">
-        //     <div className="res-details-card flex justify-between w-[480px]">
-        //         <div className="res-info">
-        //             <div className="res-title text-xl font-semibold">{name}</div>
-        //             <div className="res-cuisine font-medium">{cuisines.join(', ')}</div>
-        //             <div className="res-rating font-medium                                                                                                                                                              ">⭐ . {avgRating}</div>
-        //             {/* <h1 className="res-title">{name}</h1>
-        //             <p className="res-cuisine">{cuisines}</p>
-        //             <p className="res-rating">⭐ . {avgRating}</p> */}
-        //             {/* <p className="res-delivery-time">{sla.minDeliveryTime} - {sla.maxDeliveryTime}</p> */}
-        //         </div>
-        //         <div className="res-image-wrapper">
-        //             <img className="res-image rounded-xl h-[144px] w-[156px]" src={RES_IMG_URL + cloudinaryImageId} />
-        //         </div>
-        //     </div>
-        // </section>
     );
 }
 
