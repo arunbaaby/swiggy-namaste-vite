@@ -42,7 +42,7 @@ const RestaurantDetails = () => {
                         data={category.card.card}
                         key={index}
                         selected={index === selectedCategoryIndex}
-                        onClick={()=>{
+                        onClickToSetIndex={()=>{
                             setSelectedCategoryIndex(index===selectedCategoryIndex?null:index)
                         }}
                     />

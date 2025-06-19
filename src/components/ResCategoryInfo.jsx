@@ -6,7 +6,7 @@ const ResCategoryInfo = ({ data }) => {
 
     return (
         <div className="">
-            <div className="grid grid-cols-[3fr_1fr] border-b-1 border-gray-300 py-8">
+            <div className="grid grid-cols-[3fr_1fr] border-b-1 border-gray-300 py-8 gap-4">
                 <div className="flex flex-col justify-between">
                     <div className="font-bold text-gray-700 text-xl">{name}</div>
                     <div className="font-bold">₹ {price?price/100:defaultPrice/100}</div>
