@@ -1,10 +1,11 @@
 import {RestaurantCard} from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../../utils/constants";
 import useFetchSwiggyData from "../../hooks/useFetchSwiggyData";
 import BodyShimmmer from "./BodyShimmer";
 import useOnlineStatus from "../../hooks/useOnlineStatus";
+import UserContext from "../../utils/UserContext";
 
 const Body = () => {
     //whenever a state variable updates react re-renders the component
@@ -15,6 +16,9 @@ const Body = () => {
     const [filteredList, setFilteredList] = useState([]);
     //search
     const [searchText, setSearchText] = useState('');
+
+    // user context change imported method
+    const {loggedInUser, setUserName} = useContext(UserContext)
 
     // const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
@@ -53,7 +57,7 @@ const Body = () => {
     if (allRestaurants === null || filteredList.length === 0) { 
         return <BodyShimmmer/>
     }
-
+    
     return (
         <main className="body">
             <div className="top-rated-filter my-8 flex gap-16">
@@ -77,6 +81,7 @@ const Body = () => {
                     const topRated = allRestaurants.filter((res) => res.info.avgRating >= 4.6)
                     setFilteredList(topRated)
                 }}>Top Rated ⇄</button>
+                <input className="bg-[#F0F0F5] rounded p-4" value={loggedInUser} onChange={(e)=>setUserName(e.target.value)}/>
             </div>
             <div className="">
                 <h1 className="text-2xl font-extrabold">Restaurants with online food delivery in Kochi</h1>

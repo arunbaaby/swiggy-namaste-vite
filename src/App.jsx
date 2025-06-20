@@ -10,13 +10,11 @@ const App = () => {
             name: 'Arun baby'
         }
         setUserName(userData.name);
-    })
+    }, [])
     return (
         <div className="app mx-[calc(7%+52px)]">
-            <UserContext.Provider value={{ loggedInUser: userName }}>
-                <UserContext.Provider value={{loggedInUser:'Alexander Baby'}}>
-                    <Navbar />
-                </UserContext.Provider>
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+                <Navbar />
                 <Outlet />
             </UserContext.Provider>
         </div>
