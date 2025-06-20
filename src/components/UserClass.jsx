@@ -52,7 +52,9 @@ class UserClass extends React.Component {
                 <h4>Location : {location}</h4>
                 <h4>contact: </h4>
                 <div>
-                    <UserContext.Consumer>{({loggedInUser})=><h1>{loggedInUser}</h1>}</UserContext.Consumer>
+                    <UserContext.Consumer>
+                        {({loggedInUser})=><h1>{loggedInUser}</h1>}
+                    </UserContext.Consumer>
                 </div>
             </div>
         )
