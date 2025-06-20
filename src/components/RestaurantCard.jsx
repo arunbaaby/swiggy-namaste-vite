@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import {RES_IMG_URL} from '../../utils/constants';
+import UserContext from '../../utils/UserContext';
 
 export const RestaurantCard = (props) => {
     const {name,avgRating,cloudinaryImageId,cuisines,sla,promoted } = props.resData.info;
+
+    const {loggedInUser} = useContext(UserContext);
     
     return (
         <div className="res-card-container w-[282px] h-[282px] overflow-hidden transition-transform duration-200 ease-in-out hover:scale-95">
@@ -21,6 +25,7 @@ export const RestaurantCard = (props) => {
                     <span>{sla.slaString}</span>
                 </div>
                 <p className="cuisine font-medium text-gray-700">{cuisines.join(', ')}</p>
+                <p>{loggedInUser}</p>
             </div>
         </div>
     )

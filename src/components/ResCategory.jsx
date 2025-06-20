@@ -2,7 +2,7 @@ import { useState } from "react";
 import ResCategoryInfo from "./ResCategoryInfo";
 
 // {data} like this will extract the data only from the props not the entire props object
-const ResCategory = ({ data, selected, onClickToSetIndex }) => {
+const ResCategory = ({ data, selected, onClickToSetIndex, dummy }) => {
     //console.log('data: ', data);
     const { title, itemCards, categoryId } = data;
 
@@ -19,7 +19,7 @@ const ResCategory = ({ data, selected, onClickToSetIndex }) => {
                 {
                     selected &&
                     itemCards.map((item) => {
-                        return <ResCategoryInfo data={item} index={categoryId} />
+                        return <ResCategoryInfo data={item} index={categoryId} dummy={dummy} />
                     })
                 }
             </div>

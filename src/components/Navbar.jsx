@@ -1,7 +1,8 @@
 import {LOGO_URL} from '../../utils/constants';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import useOnlineStatus from '../../hooks/useOnlineStatus';
+import UserContext from '../../utils/UserContext';
 
 const Navbar = () => {
     const [btnNameReact,setBtnNameReact] = useState('Login');
@@ -24,7 +25,9 @@ const Navbar = () => {
     // console.log('header rendered');
 
     const onlineStatus = useOnlineStatus();
-    const linkClass = "text-xl font-semibold no-underline hover:text-[var(--primary-color)]";
+    const {loggedInUser} = useContext(UserContext);
+
+    const linkClass = "text-xl font-semibold no-underline hover:text-[var(--primary-color)] list-none";
     return (
         <nav className="navbar">
             <div className="navbar-container flex justify-between items-center my-4">
@@ -49,7 +52,8 @@ const Navbar = () => {
                             // but react compares the previous version and refrehes the only changed element
                         }
                     }>{btnNameReact}</a>
-                    <a href="#" className={`${linkClass} min-w-[64px] text-center`}>Sign Up</a>
+                    <li className={linkClass}>{loggedInUser}</li>
+                    {/* <a href="#" className={`${linkClass} min-w-[64px] text-center`}>Sign Up</a> */}
                 </div>
             </div>
         </nav>

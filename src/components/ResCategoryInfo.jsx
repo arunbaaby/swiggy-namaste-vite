@@ -1,7 +1,8 @@
 import { RES_ITEM_URL } from "../../utils/constants";
 
-const ResCategoryInfo = ({ data }) => {
-    console.log('res cat info', data);
+const ResCategoryInfo = ({ data, dummy }) => {
+    //console.log('res cat info', data);
+    console.log(dummy);// data is passed from the parent to the children...this is called props drilling    
     const { name, price, description, imageId, defaultPrice, ratings } = data.card.info;
 
     return (

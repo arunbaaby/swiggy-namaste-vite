@@ -13,6 +13,8 @@ const RestaurantDetails = () => {
 
     const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
 
+    const dummy = 'Dummy data';
+
     if (!restaurantDetails) {
         return <ResShimmer />
     }
@@ -45,6 +47,7 @@ const RestaurantDetails = () => {
                         onClickToSetIndex={()=>{
                             setSelectedCategoryIndex(index===selectedCategoryIndex?null:index)
                         }}
+                        dummy={dummy}
                     />
                 )}
             </div>
